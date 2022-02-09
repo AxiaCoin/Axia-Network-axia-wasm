@@ -1,0 +1,51 @@
+[package]
+name = "axia-wasm"
+version = "0.42.2"
+authors = ["Sankar boro <sankar.boro@zeeve.io>"]
+license = "MIT/Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/axia-tech/axia-wasm"
+homepage = "https://github.com/axia-tech/axia-wasm"
+documentation = "https://docs.rs/axia-wasm"
+description = "WebAssembly low-level format library"
+keywords = ["wasm", "webassembly", "bytecode", "serde", "interpreter"]
+categories = ["wasm", "parser-implementations"]
+exclude = [ "res/*", "spec/*" ]
+edition = "2018"
+
+[dev-dependencies]
+time = "0.1"
+
+[features]
+default = ["std"]
+std = []
+
+# Reduce stack usage for buffered read operations.
+# This feature is useful when integrating on resource constrained devices such as microcontroler
+# where the stack size is fixed (stacks do not grow) and limited to a few (k)bytes.
+reduced-stack-buffer = []
+
+#
+# Features for enabling non-MVP proposals.
+# These features should be tested as part of Travis CI build.
+#
+
+# Atomics aka threading.
+# https://github.com/webassembly/threads/
+atomics = []
+
+# SIMD
+# https://github.com/WebAssembly/simd/
+simd = []
+
+# Sign-extension operators
+# https://github.com/WebAssembly/sign-extension-ops/
+sign_ext = []
+
+# Bulk-memory operators
+# https://github.com/WebAssembly/bulk-memory-operations/
+bulk = []
+
+# Multi-value
+# https://github.com/WebAssembly/multi-value/
+multi_value = []
